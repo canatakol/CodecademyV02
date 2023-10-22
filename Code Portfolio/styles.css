@@ -6,7 +6,27 @@ html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h1,h2,h3,h4,h5,h6 {
+    color: #F2F2F2;
+}
+
+header {
+    background-color: #F5F5F5;
+}
+
+header #logo img {
+    display: inline-block;
+    max-width: 160px;
+    width: 10rem;
+    height: auto;
+}
+
+header nav {
+    display: inline-block;
+}
+
 nav ul li {
+    font-size: ;
     display: inline-block;
     text-decoration: none;
 
@@ -32,7 +52,7 @@ nav ul li {
     color: white; /* Set the text color to white */
     text-align: center; /* Center-align the text */
     margin: 0; /* Remove default margin */
-    font-size: 36px; /* Set the font size as per your preference */
+    font-size: 3rem; /* Set the font size as per your preference */
 }
 
 .image-container::before {

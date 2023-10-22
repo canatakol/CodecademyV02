@@ -1,67 +1,107 @@
 html {
-    background-color: #333333;
-    color: antiquewhite;
-    margin: 0;
-    padding: 0;
     font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    color: #F2F2F2;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-header {
-    background-color: #F5F5F5;
+.container {
+    width: 100%;
+    height: 100%;
+    background: #333333;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 2rem;
+    /* Add other styles as needed */
 }
 
-header #logo img {
+.header {
+    width: 100%;
+    padding: 32px;
+    background: #F5F5F5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 48px;
+}
+
+.logo img {
     display: inline-block;
-    max-width: 160px;
-    width: 10rem;
-    height: auto;
+    width: 160px;
+    height: 160px;
+    border-radius: 1000px;
 }
 
-header nav {
-    display: inline-block;
+nav ul {
+    gap: 1rem;
+    display: inline-flex;
+    
 }
 
 nav ul li {
-    font-size: ;
     display: inline-block;
-    text-decoration: none;
-
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2rem;
+    word-wrap: break-word;
+    gap: 16px;
 }
 
-.image-container {
-    position: relative;
-    width: 100%;
-    max-width: 100vw; /* Set your desired maximum width */
+.projects {
+    padding:  1rem 2rem;
+    display: flex;
+    gap: 16px; /* Adjust the gap between projects as needed */
 }
 
-.image-container img {
-    width: 100%;
-    height: auto;
-    display: block;
+.project {
+    flex: 2 1 0; /* Apply flex: 2 1 0; property to .project class */
+    padding: 24px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
 }
 
-.image-container h1 {
-    position: absolute;
-    top: 50%; /* Position the heading 50% from the top of the container */
-    left: 50%; /* Position the heading 50% from the left of the container */
-    transform: translate(-50%, -50%); /* Center the heading */
-    color: white; /* Set the text color to white */
-    text-align: center; /* Center-align the text */
-    margin: 0; /* Remove default margin */
-    font-size: 3rem; /* Set the font size as per your preference */
+.project img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 12px;
 }
 
-.image-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.65); /* 15% opacity black overlay */
+.project .til
+
+.projects .project img {
+    align-self: stretch;
+    height: 377px;
+    border-radius: 12px;
 }
 
+.contact .contactInfo {
+    flex: 2 1 0;
+    padding: 24px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.profile img {
+    width: 240px;
+    height: 240px;
+    border-radius: 1000px;
+}

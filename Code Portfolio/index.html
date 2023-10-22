@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +9,52 @@
 </head>
 
 <body>
-    <header>
-        <span id="logo">
-            <img src="Assests/Logo.png"
-        </span>
-      <nav>
-        <ul>
-            <li><a href="portfolio">Portfolio</a></li>
-            <li><a href="contact">Contact</a></li>
-          
-        </ul>
-    </nav>
-    
-        
-        <div class="image-container">        
-            <img src="https://cdn.discordapp.com/attachments/1128952780598542346/1165409921190334535/norruth_Cartoon_image_of_large_armies_soldiers_of_ancient_india_08be0f4d-89d2-4255-b68f-6488519f9381.png?ex=6546bf91&is=65344a91&hm=446d04d39359a4612f09af615045694d0b93101f4dcef49d3a7e7059b2a0fc29&">
-            <h1>Your Heading Text</h1>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="Assests/Logo.png" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#_Projects">Portfolio</a></li>
+                    <li><a href="#_Contact">Contact</a></li>
+                </ul>
+               
+        </nav>
         </div>
-    </header>
-    <section>
-        This is a section
-    </section>
-    <footer>
-        This is a footer
-    </footer>
+        <div class="projects" id="_Projects">
+            <div class="project">
+                <img src="Assests/Portfolio-1.png" alt="Project 1">
+                <h3 class="projectTitle">Project 1</h3>
+                <div class="projectDescription">
+                   <p>In this code, the element is placed inside the .image-container div. The CSS is used to
+                    position the heading absolutely at 50% from the top and 50% from the left, effectively centering
+                    it on the image. The transform property is used to adjust the position precisely to the center.
+                    The black overlay is applied using the ::before pseudo-element as in the previous example.</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="Assests/Portfolio-1.png" alt="Project 2">
+                <h3 class="projectTitle">Project 2</h3>
+                <div class="projectDescription">
+                    <p>In this code, the element is placed inside the .image-container div. The CSS is used to
+                        position the heading absolutely at 50% from the top and 50% from the left, effectively centering
+                        it on the image. The transform property is used to adjust the position precisely to the center.
+                        The black overlay is applied using the ::before pseudo-element as in the previous example.</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact" id="_Contact">
+            <div class="contactInfo">
+                <div class="contactTitle">Zero</div>
+                <div class="contactItem">Phone: +90 49494 494994</div>
+                <div class="contactItem">Email: canatakol@me.com</div>
+            </div>
+        </div>
+        <div class="profile">
+            <img src="Assests/Logo.png" alt="Profile Picture">
+        </div>
+    </div>
 </body>
+
 </html>

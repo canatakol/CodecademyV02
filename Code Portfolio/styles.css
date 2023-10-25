@@ -88,6 +88,11 @@ nav ul li {
     gap: 0.5rem;
 }
 
+.dark-mode .project {
+    background-color: #333;
+    color: #fff;
+}
+
 .projects .project img {
     width: 100%; /* Make the image fill the container */
     height: auto; /* Maintain aspect ratio */
@@ -102,6 +107,7 @@ nav ul li {
     flex: 2 1 0;
     padding: 24px;
     background: white;
+    color: #333;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
     border-radius: 16px;
     overflow: hidden;

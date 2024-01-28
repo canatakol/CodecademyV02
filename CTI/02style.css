@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans";
+    box-sizing: border-box;
+  }
+  
+  h3 {
+    margin-bottom: 16px;
+  }
+  
+  p {
+    margin-bottom: 16px;
+  }
+  
+  #body {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    
+    min-height: 320px;
+  }
+  #left-menu {
+    z-index: 10;
+    position: fixed;
+    width: 88px;
+    min-height: 100vh;
+    background-color: white;
+    
+  }
+  #black-square {
+    width: 64px;
+    height: 64px;
+    background-color: #333;
+    margin: 8px;
+    border-radius: 16px;
+  }
+  .separator {
+    background-color: white;
+    width: 100%;
+    height: 2px;
+  }
+  #big-container {
+    z-index: 10;
+    position: relative;
+    padding: 24px;
+    background-color: rgb(0, 128, 255);
+    width: calc(100% - 88px);
+    height: fit-content;
+    top:64px;
+    left: 88px;
+    right: 0px;
+    bottom: 0px;
+    
+    border-top-left-radius: 32px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  #cards {
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Two columns in each row */
+    gap: 1rem; /* Gap between grid items */
+  }
+  .card {
+    padding: 0px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 1rem;
+    height: fit-content;
+    
+  }
+  .card img {
+    max-width: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  .card-content {
+    padding:1rem;
+  }
+
+  #top-menu {
+    right: 0;
+    top:0;
+    z-index: 100;
+    position: fixed;
+    height: 64px;
+    width: calc(100% - 88px);
+    background-color: white;
+    
+  }
+  #top-menu ul {
+    list-style-type: none;
+    display: flex;
+    padding: 16px;
+    gap: 0.5rem;
+  
+  }
+  #top-menu ul li {
+    text-decoration: none;
+  }
+  
+  #top-menu ul li a{
+    text-decoration: none;
+  }
+  
+  #small-container {
+    position: relative;
+    top: 64px;
+    padding: 0px;
+    color: #f3f3f3;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  
+  
+  #content {
+    background-color: white;
+    color: #333;
+    margin: 24px;
+    padding:16px;
+    border: 1px solid #333;
+    border-radius: 16px;
+    
+  }
+  #content-list {
+    color: #333;
+    margin: 24px;
+    padding:16px;
+    
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+      }
+  
+   input {
+   width: 100%;
+   padding: 8px;
+   border-radius: 8px;
+   border: 1px solid #bababa;
+   }
+  
+  button {
+    padding: 10px 24px;
+    font-weight: bold;
+    border: none;
+    background-color: #00B140;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  button:hover {
+    background-color: #33C166;
+    cursor: pointer;
+  }
+  .question {
+    margin-bottom: 16px;
+  }
+  
+  
+  /* Media query for screens smaller than 480px */
+  @media (max-width: 519px) {
+    * {
+      font-size:12px;
+    }
+   
+    #cards {
+      
+      display: grid;
+      grid-template-columns: 1fr; /* Two columns in each row */
+    }  
+   
+  }
+
+  @media (min-width: 520px) and (max-width: 1023px) {
+    * {
+      font-size:14px;
+    }
+   
+    #cards {
+      display: grid;
+      grid-template-columns: repeat(2,1fr); /* Two columns in each row */
+    }   
+  }
+
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    * {
+      font-size:16px;
+    }
+    
+    #cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+    }  
+    
+  }
+
+  @media (min-width: 1440px) {
+    * {
+      font-size:18px;
+    }
+    
+    #cards {
+      display: grid;
+      grid-template-columns: repeat(4,1fr); /* Two columns in each row */
+    }  
+  }

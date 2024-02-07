@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario Values Chart</title>
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Add a canvas element to render the chart -->
+  <canvas id="scenarioChart" width="1000" height="600"></canvas>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function roundUpToTen(number) {
+        return Math.ceil(number / 10) * 10;
+      }
+        function roundUpToHundred(number) {
+        return Math.ceil(number / 100) * 100;
+      }
+      
+      function roundUpToTenThousands(number) {
+        return Math.ceil(number / 10000) * 10000;
+      }
+      function roundUpToHundredThousands(number) {
+        return Math.ceil(number / 100000) * 100000;
+      }
+      function roundUpToMillion(number) {
+        return Math.ceil(number / 1000000) * 1000000;
+      }
+
+      function generateChart() {
+        const scenarioNames = ['Scenario 1', 'Scenario 2', 'Scenario 3', 'Scenario 4'];
+        const scenarioValues = [30, 3.4, 1.4, 15];
+
+        // Find max value
+        const maxValue = Math.max(...scenarioValues);
+
+        // Round up the max value based on magnitude
+        let maxCeilLimit;
+        if (maxValue <= 10) {
+          maxCeilLimit = roundUpToTen(maxValue);
+        } else if (maxValue > 10 && maxValue <= 100) {
+          maxCeilLimit = roundUpToHundred(maxValue);
+        } else if (maxValue > 100 && maxValue <= 1000) {
+          maxCeilLimit = roundUpToTen(maxValue);
+        } else if (maxValue > 1000 && maxValue <= 10000) {
+          maxCeilLimit = roundUpToTenThousands(maxValue);
+        } else {
+          maxCeilLimit = roundUpToHundredThousands(maxValue);
+        }
+
+        // Output the results
+        console.log("Generated Numbers:", scenarioValues);
+        console.log("Max Value (Before Max Ceil Limit):", maxValue);
+        console.log("Max Value (After Max Ceil Limit):", maxCeilLimit);
+
+        // Get existing chart instance
+        const existingChart = Chart.getChart('scenarioChart');
+
+        // Destroy existing chart if it exists
+        if (existingChart) {
+          existingChart.destroy();
+        }
+
+        // Call a separate function to create the chart
+        createChart(scenarioNames, scenarioValues, maxCeilLimit);
+      }
+
+      function createChart(labels, data, maxCeilLimit) {
+        const ctx = document.getElementById('scenarioChart').getContext('2d');
+        const chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Scenario Values',
+              data: data,
+              backgroundColor: (context) => context.dataIndex === 0 ? 'rgba(128, 0, 128, 0.8)' : 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: maxCeilLimit
+              }
+            }
+          }
+        });
+      }
+
+      // Generate the chart when the page loads
+      generateChart();
+    });
+  </script>
+</body>
+</html>

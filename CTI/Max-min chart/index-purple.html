@@ -1,0 +1,99 @@
+<!-- Works in 10000th percentile-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario Values Chart</title>
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Add a canvas element to render the chart -->
+  <canvas id="scenarioChart" width="1000" height="600"></canvas>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () 
+      {
+      function roundUpToTen(number) {
+        return Math.ceil(number / 10) * 10;
+      }
+      function roundUpToHundred(number) {
+        return Math.ceil(number / 100) * 100;
+      }
+      function roundUpToThousands(number) {
+        return Math.ceil(number / 1000) * 1000;
+      }
+      function roundUpToTenThousands(number) {
+        return Math.ceil(number / 10000) * 10000;
+      }
+      function roundUpToHundredThousands(number) {
+        return Math.ceil(number / 100000) * 100000;
+      }
+      function roundUpToMillions(number) {
+        return Math.ceil(number / 1000000) * 1000000;
+      }
+      
+
+      // Function to generate a random natural number between 0 and 100000
+      function generateRandomNumber() {
+        return Math.floor(Math.random() * 101);
+      }
+
+      // Generate 4 random natural numbers
+      const scenarioNames = ['Scenario 1', 'Scenario 2', 'Scenario 3', 'Scenario 4'];
+      const scenarioValues = scenarioNames.map(() => generateRandomNumber());
+
+      // Find min and max values
+      const minValue = Math.min(...scenarioValues);
+      const maxValue = Math.max(...scenarioValues);
+
+      // Round up the max value to the nearest hundred
+      let maxCeilLimit;
+      if (maxValue <= 10) {
+        maxCeilLimit = roundUpToTen(maxValue);
+      } else if (maxValue > 10 && maxValue <= 100) {
+        maxCeilLimit = roundUpToHundred(maxValue);
+      } else if (maxValue > 100 && maxValue <= 1000) {
+        maxCeilLimit = roundUpToThousands(maxValue);
+      } else if (maxValue > 1000 && maxValue <= 10000) {
+        maxCeilLimit = roundUpToTenThousands(maxValue);
+      } else if (maxValue > 10000 && maxValue <= 100000) {
+        maxCeilLimit = roundUpToHundredThousands(maxValue);
+      } else {
+        maxCeilLimit = roundUpToMillions(maxValue);
+      }
+
+      // Output the results
+      console.log("Generated Numbers:", scenarioValues);
+      console.log("Min Value:", minValue);
+      console.log("Max Value (Before Max Ceil Limit):", maxValue);
+      console.log("Max Value (After Max Ceil Limit):", maxCeilLimit);
+
+      // Create a bar chart
+      const ctx = document.getElementById('scenarioChart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: scenarioNames,
+          datasets: [{
+            label: 'Scenario Values',
+            data: scenarioValues,
+            backgroundColor: (context) => context.dataIndex === 0 ? 'rgba(128, 0, 128, 0.8)' : 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: false,
+              max: maxCeilLimit
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

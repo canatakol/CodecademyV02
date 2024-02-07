@@ -1,3 +1,4 @@
+<!-- Works in 10000th percentile-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,17 +10,17 @@
 </head>
 <body>
   <!-- Add a canvas element to render the chart -->
-  <canvas id="scenarioChart" width="400" height="300"></canvas>
+  <canvas id="scenarioChart" width="1000" height="600"></canvas>
 
   <script>
 document.addEventListener('DOMContentLoaded', function () {
   function roundUpToHundred(number) {
-    return Math.ceil(number / 100) * 100;
+    return Math.ceil(number / 1000) * 1000;
   }
 
   // Function to generate a random natural number between 0 and 1000
   function generateRandomNumber() {
-    return Math.floor(Math.random() * 1001);
+    return Math.floor(Math.random() * 100001);
   }
 
   // Generate 4 random natural numbers

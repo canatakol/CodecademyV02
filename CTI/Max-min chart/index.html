@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario Values Chart</title>
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Add a canvas element to render the chart -->
+  <canvas id="scenarioChart" width="400" height="300"></canvas>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  function roundUpToHundred(number) {
+    return Math.ceil(number / 100) * 100;
+  }
+
+  // Function to generate a random natural number between 0 and 1000
+  function generateRandomNumber() {
+    return Math.floor(Math.random() * 1001);
+  }
+
+  // Generate 4 random natural numbers
+  const scenarioNames = ['Scenario 1', 'Scenario 2', 'Scenario 3', 'Scenario 4'];
+  const scenarioValues = scenarioNames.map(() => generateRandomNumber());
+
+  // Find min and max values
+  const minValue = Math.min(...scenarioValues);
+  const maxValue = Math.max(...scenarioValues);
+
+  // Round up the max value to the nearest hundred
+  const maxCeilLimit = roundUpToHundred(maxValue);
+
+  // Output the results
+  console.log("Generated Numbers:", scenarioValues);
+  console.log("Min Value:", minValue);
+  console.log("Max Value (Before Max Ceil Limit):", maxValue);
+  console.log("Max Value (After Max Ceil Limit):", maxCeilLimit);
+
+  // Create a bar chart
+  const ctx = document.getElementById('scenarioChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: scenarioNames,
+      datasets: [{
+        label: 'Scenario Values',
+        data: scenarioValues,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)', // Change the color if needed
+        borderColor: 'rgba(75, 192, 192, 1)', // Change the color if needed
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: maxCeilLimit // Set the y-axis max value
+        }
+      }
+    }
+  });
+});
+
+    </script>
+</body>
+</html>

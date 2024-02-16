@@ -204,27 +204,25 @@
   }
 
   @media (min-width: 1024px) and (max-width: 1439px) {
-    * {
-      font-size:16px;
-    }
-    #black-square2 {
-      display:none;
-    }
     #cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem; /* Gap between grid items */
+      grid-template-columns: repeat(6, 2fr);
+      gap: 1rem;
     }
-    
-    #cards > div:nth-child(4n) {
-      grid-column: span 3; /* Make the first element in every row span all three columns */
+  
+    #cards > div:nth-child(5n+1),
+    #cards > div:nth-child(5n+2) {
+      grid-column: span 3; /* Make the 1st and 2nd items in every row span three rows */
     }
-    #cards > div:nth-child(4n) img {
-      object-fit: cover; 
-      width: 100%;
-      height: 20rem; 
+
+    #cards > div:nth-child(5n+3),
+    #cards > div:nth-child(5n+4),
+    #cards > div:nth-child(5n+5) {
+      grid-column: span 2; /* Make the 1st and 2nd items in every row span two rows */
     }
-  }
+
+}
+
   
 
   @media (min-width: 1440px) {
@@ -236,17 +234,22 @@
     }
     #cards {
       display: grid;
-      grid-template-columns: repeat(4,1fr);
-    }  
-
-    #cards > div:nth-child(5n) {
-      grid-column: span 4; 
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
-    #cards > div:nth-child(5n) img {
-      object-fit: cover; 
+  
+    #cards > div:nth-child(6n+1),
+    #cards > div:nth-child(6n+2) {
+      grid-column: span 2; /* Make the 1st and 2nd items in every row span two rows */
+    }
+    
+  
+    #cards img {
+      object-fit: cover;
       width: 100%;
-      height: 20rem;  
+      height: 20rem;
     }
+  }
   } 
   
 
